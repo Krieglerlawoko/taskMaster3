@@ -13,8 +13,8 @@ const app = express();
 app.use(cors());            // Enable Cross-Origin Resource Sharing
 app.use(express.json());     // Parse incoming JSON requests
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to MongoDB without deprecated options
+mongoose.connect(process.env.MONGO_URL)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Failed to connect to MongoDB:', err));
 
